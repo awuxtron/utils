@@ -34,7 +34,7 @@
     "scripts": {
         "build": "tsc && unbuild",
         "prepublishOnly": "npm run build",
-        "release": "bumpp -a && npm publish"
+        "release": "bumpp && npm publish"
     },
     "devDependencies": {
         "@types/node": "^18.16.3",
