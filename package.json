@@ -1,0 +1,75 @@
+{
+    "name": "@awuxtron/utils",
+    "type": "module",
+    "version": "0.0.1",
+    "description": "The collection of common Javascript / Typescript utilities",
+    "keywords": [
+        "utils"
+    ],
+    "homepage": "https://github.com/awuxtron/utils#readme",
+    "bugs": {
+        "email": "awuxtron@gmail.com",
+        "url": "https://github.com/awuxtron/utils/issues"
+    },
+    "license": "MIT",
+    "author": "Diep Dang <awuxtron@gmail.com> (https://awuxtron.dev)",
+    "funding": "https://paypal.me/awuxtron",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.mjs"
+        },
+        "./array": {
+            "types": "./dist/array.d.ts",
+            "require": "./dist/array.cjs",
+            "import": "./dist/array.mjs"
+        },
+        "./ethereum": {
+            "types": "./dist/ethereum.d.ts",
+            "require": "./dist/ethereum.cjs",
+            "import": "./dist/ethereum.mjs"
+        },
+        "./number": {
+            "types": "./dist/number.d.ts",
+            "require": "./dist/number.cjs",
+            "import": "./dist/number.mjs"
+        },
+        "./object": {
+            "types": "./dist/object.d.ts",
+            "require": "./dist/object.cjs",
+            "import": "./dist/object.mjs"
+        },
+        "./string": {
+            "types": "./dist/string.d.ts",
+            "require": "./dist/string.cjs",
+            "import": "./dist/string.mjs"
+        },
+        "./time": {
+            "types": "./dist/time.d.ts",
+            "require": "./dist/time.cjs",
+            "import": "./dist/time.mjs"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awuxtron/utils.git"
+    },
+    "scripts": {
+        "build": "tsc && unbuild",
+        "prepublishOnly": "npm run build",
+        "release": "bumpp && npm publish"
+    },
+    "devDependencies": {
+        "@types/node": "^18.16.3",
+        "bumpp": "^9.1.0",
+        "typescript": "^5.0.4",
+        "unbuild": "^1.2.1"
+    }
+}
