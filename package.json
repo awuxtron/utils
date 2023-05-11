@@ -1,7 +1,7 @@
 {
     "name": "@awuxtron/utils",
     "type": "module",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "The collection of common Javascript / Typescript utilities",
     "keywords": [
         "utils"
@@ -71,5 +71,8 @@
         "bumpp": "^9.1.0",
         "typescript": "^5.0.4",
         "unbuild": "^1.2.1"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
