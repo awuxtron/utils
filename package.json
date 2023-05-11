@@ -1,7 +1,7 @@
 {
     "name": "@awuxtron/utils",
     "type": "module",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "The collection of common Javascript / Typescript utilities",
     "keywords": [
         "utils"
@@ -25,36 +25,6 @@
             "types": "./dist/index.d.ts",
             "require": "./dist/index.cjs",
             "import": "./dist/index.mjs"
-        },
-        "./array": {
-            "types": "./dist/array.d.ts",
-            "require": "./dist/array.cjs",
-            "import": "./dist/array.mjs"
-        },
-        "./ethereum": {
-            "types": "./dist/ethereum.d.ts",
-            "require": "./dist/ethereum.cjs",
-            "import": "./dist/ethereum.mjs"
-        },
-        "./number": {
-            "types": "./dist/number.d.ts",
-            "require": "./dist/number.cjs",
-            "import": "./dist/number.mjs"
-        },
-        "./object": {
-            "types": "./dist/object.d.ts",
-            "require": "./dist/object.cjs",
-            "import": "./dist/object.mjs"
-        },
-        "./string": {
-            "types": "./dist/string.d.ts",
-            "require": "./dist/string.cjs",
-            "import": "./dist/string.mjs"
-        },
-        "./time": {
-            "types": "./dist/time.d.ts",
-            "require": "./dist/time.cjs",
-            "import": "./dist/time.mjs"
         }
     },
     "repository": {
