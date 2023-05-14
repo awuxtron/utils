@@ -43,8 +43,8 @@ export function trim(str: string, characters = ' \n\r\t\v') {
  *
  * @category String
  */
-export function ensurePrefix(str: string, prefix: string) {
-    return !str.startsWith(prefix) ? prefix + str : str
+export function ensurePrefix<P extends string>(str: string, prefix: P) {
+    return (!str.startsWith(prefix) ? prefix + str : str) as `${P}${string}`
 }
 
 /**
@@ -52,6 +52,6 @@ export function ensurePrefix(str: string, prefix: string) {
  *
  * @category String
  */
-export function ensureSuffix(str: string, suffix: string) {
-    return !str.endsWith(suffix) ? str + suffix : str
+export function ensureSuffix<P extends string>(str: string, suffix: P) {
+    return (!str.endsWith(suffix) ? str + suffix : str) as `${P}${string}`
 }
