@@ -1,4 +1,4 @@
-export type Address = `0x${string}`
+export type Address = string
 
 export const ERC20_SIGNATURES = [
     'dd62ed3e', // allowance
