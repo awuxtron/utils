@@ -1,4 +1,5 @@
 export * from './array'
+export * from './class'
 export * from './ethereum'
 export * from './function'
 export * from './number'
