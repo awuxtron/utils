@@ -1,5 +1,6 @@
 export * from './array'
 export * from './ethereum'
+export * from './function'
 export * from './number'
 export * from './object'
 export * from './string'
