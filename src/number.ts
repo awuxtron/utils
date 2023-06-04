@@ -11,7 +11,7 @@ export interface FormatOptions extends Intl.NumberFormatOptions {
  *
  * @category Number
  */
-export function isNumber(input: any): input is Numberish {
+export function isNumberish(input: any): input is Numberish {
     return ['number', 'bigint'].includes(typeof input) || /^([-+])?(\d+)(\.\d+)?$/.test(String(input))
 }
 

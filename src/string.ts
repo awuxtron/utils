@@ -39,12 +39,30 @@ export function trim(str: string, characters = ' \n\r\t\v') {
 }
 
 /**
+ * Check if the given string is start with the given prefix.
+ *
+ * @category String
+ */
+export function hasPrefix(str: string, prefix: string) {
+    return str.startsWith(prefix)
+}
+
+/**
+ * Check if the given string is ends with the given suffix.
+ *
+ * @category String
+ */
+export function hasSuffix(str: string, suffix: string) {
+    return str.endsWith(suffix)
+}
+
+/**
  * Ensure the given string is always start with the given prefix.
  *
  * @category String
  */
-export function ensurePrefix<P extends string>(str: string, prefix: P) {
-    return (!str.startsWith(prefix) ? prefix + str : str) as `${P}${string}`
+export function ensurePrefix(str: string, prefix: string) {
+    return !hasPrefix(str, prefix) ? prefix + str : str
 }
 
 /**
@@ -52,6 +70,33 @@ export function ensurePrefix<P extends string>(str: string, prefix: P) {
  *
  * @category String
  */
-export function ensureSuffix<P extends string>(str: string, suffix: P) {
-    return (!str.endsWith(suffix) ? str + suffix : str) as `${P}${string}`
+export function ensureSuffix(str: string, suffix: string) {
+    return !hasSuffix(str, suffix) ? str + suffix : str
+}
+
+/**
+ * Strip the given prefix from the given string.
+ *
+ * @category String
+ */
+export function stripPrefix(str: string, prefix: string) {
+    return hasPrefix(str, prefix) ? str.slice(prefix.length) : str
+}
+
+/**
+ * Strip the given suffix from the given string.
+ *
+ * @category String
+ */
+export function stripSuffix(str: string, suffix: string) {
+    return hasSuffix(str, suffix) ? str.slice(0, -suffix.length) : str
+}
+
+/**
+ * Capitalize the first letter of the given string.
+ *
+ * @category String
+ */
+export function capitalize(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
 }
