@@ -1,7 +1,7 @@
 {
     "name": "@awuxtron/utils",
     "type": "module",
-    "version": "0.0.16",
+    "version": "0.1.0",
     "description": "The collection of common Javascript / Typescript utilities",
     "keywords": [
         "utils"
@@ -36,8 +36,13 @@
         "prepublishOnly": "npm run build",
         "release": "bumpp && npm publish"
     },
+    "dependencies": {
+        "deepmerge": "^4.3.1",
+        "throttle-debounce": "^5.0.0"
+    },
     "devDependencies": {
         "@types/node": "^18.16.3",
+        "@types/throttle-debounce": "^5.0.0",
         "bumpp": "^9.1.0",
         "typescript": "^5.0.4",
         "unbuild": "^1.2.1"

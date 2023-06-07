@@ -15,6 +15,14 @@ export function isNumberish(input: any): input is Numberish {
     return ['number', 'bigint'].includes(typeof input) || /^([-+])?(\d+)(\.\d+)?$/.test(String(input))
 }
 
+export function toBigInt(input: any) {
+    return BigInt(String(input))
+}
+
+export function toNumber(input: any) {
+    return Number(String(input))
+}
+
 /**
  * Wrapper of Intl.NumberFormat function with advanced features support.
  *

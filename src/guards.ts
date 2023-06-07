@@ -1,3 +1,7 @@
+export function is<T>(value: any, isMatched: boolean): value is T {
+    return isMatched
+}
+
 /**
  * Type guard to filter out null value.
  *
