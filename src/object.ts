@@ -1,3 +1,6 @@
+import type { PickByType } from './types'
+import { sum } from './array'
+
 export type GenericObject = Record<PropertyKey, any>
 
 export type FilterPredicate<O, K extends keyof O> = (key: K, value: O[K], index: number) => boolean
@@ -67,4 +70,13 @@ export function omit<O extends GenericObject, K extends keyof O>(object: O, ...k
  */
 export function map<K extends PropertyKey, V, NK = K, NV = V>(object: Record<K, V>, fn: (k: K, v: V) => [NK, NV]) {
     return Object.fromEntries(entries(object).map(([k, v]) => fn(k, v))) as Record<K, V>
+}
+
+/**
+ * Sum the values of the specified key in the array of objects.
+ *
+ * @category Object
+ */
+export function sumBy<O extends GenericObject>(objects: O[], key: keyof PickByType<O, number>) {
+    return sum(objects.map((o) => o[key]))
 }

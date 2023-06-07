@@ -39,3 +39,12 @@ export function unique<T>(array: T[]): T[] {
 export function wrap<T>(array: T | T[]): T[] {
     return Array.isArray(array) ? array : [array]
 }
+
+/**
+ * Return the sum of all numbers in the array.
+ *
+ * @category Array
+ */
+export function sum(array: number[]): number {
+    return array.reduce((a, b) => a + b, 0)
+}
