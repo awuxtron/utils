@@ -1,3 +1,5 @@
+import { Fn } from './function'
+
 export enum Duration {
     /**
      * A millisecond.
@@ -50,3 +52,23 @@ export const sleep = async (ms: number) => new Promise((resolve) => setTimeout(r
 export const timestamp = () => Math.floor(Date.now() / 1000)
 
 export const inMilliseconds = (value: number, duration: Duration) => value * duration
+
+export function countdown(date: Date, onEnd?: Fn, template: string = '{{d}}d {{h}}h {{m}}m {{s}}s'): string {
+    const now = Date.now()
+    const distance = date.getTime() - now
+
+    if (distance <= 0 && onEnd) {
+        onEnd()
+    }
+
+    const days = Math.floor(distance / Duration.Day)
+    const hours = Math.floor((distance % Duration.Day) / Duration.Hour)
+    const minutes = Math.floor((distance % Duration.Hour) / Duration.Minute)
+    const seconds = Math.floor((distance % Duration.Minute) / Duration.Second)
+
+    return template
+      .replace('{{d}}', String(days))
+      .replace('{{h}}', String(hours))
+      .replace('{{m}}', String(minutes))
+      .replace('{{s}}', String(seconds))
+}
