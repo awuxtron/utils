@@ -4,6 +4,7 @@ export interface FormatOptions extends Intl.NumberFormatOptions {
     locales?: string | string[]
     groupFractionLeadingZeros?: boolean
     exactFractionWhenZero?: boolean
+    maximumFractionLeadingZeros?: number
 }
 
 /**
@@ -29,13 +30,19 @@ export function toNumber(input: any) {
  * @category Number
  */
 export function format(number: Numberish, options: FormatOptions = {}) {
-    let { maximumFractionDigits = 4, groupFractionLeadingZeros = false, exactFractionWhenZero = true } = options
+    let {
+        maximumFractionDigits = 4,
+        groupFractionLeadingZeros = false,
+        exactFractionWhenZero = true,
+        maximumFractionLeadingZeros = maximumFractionDigits,
+    } = options
+
     let leadingZerosCount = 0
 
     const [integerPart, fractionPart = '0'] = String(number).split('.')
 
     if (BigInt(integerPart) == 0n && (groupFractionLeadingZeros || exactFractionWhenZero)) {
-        maximumFractionDigits += leadingZerosCount = fractionPart.match(/^0+/)?.[0].length || 0
+        maximumFractionDigits += leadingZerosCount = RegExp(/^0+/).exec(fractionPart)?.[0].length ?? 0
 
         if (!groupFractionLeadingZeros) {
             leadingZerosCount = 0
@@ -44,7 +51,7 @@ export function format(number: Numberish, options: FormatOptions = {}) {
 
     const formatter = new Intl.NumberFormat(options.locales, { ...options, maximumFractionDigits })
 
-    if (leadingZerosCount > 0) {
+    if (leadingZerosCount > maximumFractionLeadingZeros) {
         const formatted = formatter.formatToParts(number as number).map((part) => {
             if (part.type == 'fraction') {
                 part.value = `0{${leadingZerosCount}}` + part.value.substring(leadingZerosCount)
