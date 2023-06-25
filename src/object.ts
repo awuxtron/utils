@@ -80,3 +80,28 @@ export function map<K extends PropertyKey, V, NK = K, NV = V>(object: Record<K, 
 export function sumBy<O extends GenericObject>(objects: O[], key: keyof PickByType<O, number>) {
     return sum(objects.map((o) => o[key]))
 }
+
+/**
+ * Unflatten a given dot-notation object.
+ *
+ * @category Object
+ */
+export function unflatten(object: GenericObject, delimiter = '.'): GenericObject {
+    const result: GenericObject = {}
+
+    for (const [key, value] of Object.entries(object)) {
+        const keys = key.split(delimiter)
+
+        keys.reduce((acc, key, index) => {
+            if (index === keys.length - 1) {
+                acc[key] = value
+            } else {
+                acc[key] ??= {}
+            }
+
+            return acc[key]
+        }, result)
+    }
+
+    return result
+}
