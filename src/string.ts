@@ -100,3 +100,12 @@ export function stripSuffix(str: string, suffix: string) {
 export function capitalize(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+/**
+ * Chunk the given string into the given size.
+ *
+ * @category String
+ */
+export function chunkString(str: string, size: number): string[] {
+    return str.split(new RegExp(`(.{${size}})`)).filter(Boolean)
+}
