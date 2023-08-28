@@ -45,11 +45,18 @@ export enum Duration {
 export const sleep = async (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 /**
+ * Returns the given date as a UNIX timestamp in seconds.
+ *
+ * @category Time
+ */
+export const toUnixTimestamp = (date: Date) => Math.floor(date.getTime() / 1000)
+
+/**
  * Returns the current UNIX timestamp in seconds.
  *
  * @category Time
  */
-export const timestamp = () => Math.floor(Date.now() / 1000)
+export const timestamp = () => toUnixTimestamp(new Date())
 
 export const inMilliseconds = (value: number, duration: Duration) => value * duration
 
